@@ -22,7 +22,7 @@ namespace TicTacToe
             {
                 for (int j = 0; j < size; j++)
                 {
-                    Console.Write(map[i, j]);
+                    Console.Write(map[i, j]+" ");
                 }
                 Console.WriteLine();
             }
@@ -96,6 +96,19 @@ namespace TicTacToe
             {
                 return true;
             }
+            win = 0;
+            for (int j = 0; j < size; j++)
+            {
+                if (Map[j, size-j] == logo)
+                {
+                    win++;
+                }
+            }
+            if (win == 3)
+            {
+                return true;
+            }
+
             return false;
         }
 
@@ -131,7 +144,6 @@ namespace TicTacToe
 
                     do
                     {
-
                         flag = false;
                         Console.WriteLine($"Le joueur {(tour % 2) + 1}");
                         x = EntreVal('X', size);
